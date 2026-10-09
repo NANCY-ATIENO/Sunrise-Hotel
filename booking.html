@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hotel Booking Form</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Room Booking Form</h1>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="booking.html">Book a Room</a>
+    </nav>
+  </header>
+
+  <main>
+    <form action="process_booking.php" method="post">
+      
+      <label>Full Name:
+        <input type="text" name="fullname" required>
+        <span id="errName" class="error"></span>
+      </label><br>
+
+      <label>National ID / Passport:
+        <input type="text" name="id_number" required>
+      </label><br>
+
+      <label>Email Address:
+        <input type="email" name="email" required>
+        <span id="errEmail" class="error"></span>
+      </label><br>
+
+      <label>Phone Number:
+        <input type="tel" name="phone" required>
+        <span id="errPhone" class="error"></span>
+      </label><br>
+
+      
+      <label>Check-in Date:
+        <input type="date" name="checkin" required>
+      </label><br>
+
+      <label>Number of Nights:
+        <input type="number" name="nights" min="1" max="14" required>
+        <span id="errNights" class="error"></span>
+      </label><br>
+
+      <label>Room Type:
+        <select name="room_type" required>
+          <option value="">--Select--</option>
+          <option value="single">Single Room</option>
+          <option value="double">Double Room</option>
+          <option value="family">Family Room</option>
+        </select>
+        <span id="errRoom" class="error"></span>
+      </label><br>
+      <p id="roomInfo" class="info"></p>
+
+      <label>Number of Guests:
+        <input type="number" name="guests" min="1" required>
+        <span id="errGuests" class="error"></span>
+      </label><br>
+      <p id="guestWarning" class="warning"></p>
+
+      
+      <fieldset>
+        <legend>Breakfast Option</legend>
+        <label><input type="radio" name="breakfast" value="yes" required> Yes</label>
+        <label><input type="radio" name="breakfast" value="no"> No</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Airport Transfer</legend>
+        <label><input type="checkbox" name="transfer" value="yes"> Request Airport Transfer</label>
+      </fieldset>
+      <div id="transferOptions" style="display:none;">
+        <p>Airport transfer includes pickup and drop-off service.</p>
+      </div>
+
+      <fieldset>
+        <legend>Conference Room</legend>
+        <label><input type="checkbox" name="conference" value="yes"> Book Conference Room (KSh 5,000)</label>
+      </fieldset>
+
+      
+      <section>
+        <h3>Live Booking Summary</h3>
+        <pre id="summary"></pre>
+      </section>
+
+      
+      <section>
+        <h3>Estimated Cost</h3>
+        <p id="totalCost">Estimated Total: KSh 0</p>
+      </section>
+
+      
+      <button type="submit">Submit Booking</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Sunrise Hotel</p>
+  </footer>
+</body>
+</html>
